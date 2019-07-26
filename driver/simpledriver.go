@@ -116,12 +116,22 @@ func (s *SimpleDriver) HandleWriteCommands(deviceName string, protocols map[stri
 	}
 
 	s.lc.Debug(fmt.Sprintf("SimpleDriver.HandleWriteCommands: protocols: %v, resource: %v, parameters: %v", protocols, reqs[0].DeviceResourceName, params))
-	var err error
-	if s.switchButton, err = params[0].BoolValue(); err != nil {
-		err := fmt.Errorf("SimpleDriver.HandleWriteCommands; the data type of parameter should be Boolean, parameter: %s", params[0].String())
-		return err
-	}
+	// var err error
+	if params[0].DeviceResourceName == "SmallInt" {
+		now := time.Now().UnixNano()
+		val, err := params[0].Int8Value()
+		if err != nil {
+			return fmt.Errorf("SimpleDriver.HandleWriteCommands: %v", err)
+		}
+		result, _ := dsModels.NewInt8Value(reqs[0].DeviceResourceName, now, val)
 
+		asyncValues := &dsModels.AsyncValues{
+			DeviceName:    deviceName,
+			CommandValues: []*dsModels.CommandValue{result},
+		}
+
+		s.asyncCh <- asyncValues
+	}
 	return nil
 }
 
