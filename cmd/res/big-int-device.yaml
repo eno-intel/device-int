@@ -1,0 +1,39 @@
+name: "BigInt-Device"
+manufacturer: "BigInt Technologies"
+model: "1"
+labels:
+ - "bigint"
+ - "test"
+description: "INT32 number generator to simulate a device"
+
+deviceResources:
+    -   
+        name: "BigInt"
+        description: "generated random Int32 number"
+        properties:
+            value:
+                { type: "INT32", readWrite: "R", defaultValue: "0.00", minimum: "0.00", maximum: "100.00"  }
+            units:
+                { type: "String", readWrite: "R", defaultValue: "" }
+
+deviceCommands:
+    -
+        name: "Int32"
+        get:
+            -
+                { operation: "get", object: "BigInt", parameter: "BigInt" }
+
+coreCommands:
+  -
+    name: "Int32"
+    get:
+        path: "/api/v1/device/{deviceId}/Int32"
+        responses:
+          -
+            code: "200"
+            description: ""
+            expectedValues: ["BigInt"]
+          -
+            code: "503"
+            description: "service unavailable"
+            expectedValues: []

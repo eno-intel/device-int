@@ -89,10 +89,10 @@ func (s *SimpleDriver) HandleReadCommands(deviceName string, protocols map[strin
 	now := time.Now().UnixNano()
 	var cv *dsModels.CommandValue
 
-	if reqs[0].DeviceResourceName == "randomnumber" {
+	if reqs[0].DeviceResourceName == "BigInt" {
 		// mimick data collection from a device
 		cv, _ = dsModels.NewInt32Value(reqs[0].DeviceResourceName, now, int32(randomInt(defMinInt32, defMaxInt32)))
-	} else if reqs[0].DeviceResourceName == "Random_Float32" {
+	} else if reqs[0].DeviceResourceName == "SmallInt" {
 		cv, _ = dsModels.NewInt8Value(reqs[0].DeviceResourceName, now, int8(randomInt(defMinInt8, defMaxInt8)))
 	}
 	res[0] = cv

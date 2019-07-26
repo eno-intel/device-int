@@ -1,0 +1,49 @@
+name: "SmallInt-Device"
+manufacturer: "SmallInt Corp."
+model: "SmallInt-01"
+description: "Example of SmallInt Device"
+
+deviceResources:
+    -
+      name: "SmallInt"
+      description: "Random Int8 value"
+      properties:
+          value:
+              { type: "INT8", readWrite: "RW" }
+          units:
+              { type: "String", readWrite: "R", defaultValue: "random Float32 value" }
+
+deviceCommands:
+    -
+        name: "Int8"
+        get:
+            - { operation: "get", object: "SmallInt", parameter: "SmallInt"  }
+        set:
+            - { operation: "set", object: "SmallInt", parameter: "SmallInt"  }
+
+
+coreCommands:
+  -
+    name: "Int8"
+    get:
+        path: "/api/v1/device/{deviceId}/Int8"
+        responses:
+          -
+            code: "200"
+            description: ""
+            expectedValues: ["SmallInt"]
+          -
+            code: "503"
+            description: "service unavailable"
+            expectedValues: []
+    put:
+      path: "/api/v1/device/{deviceId}/Int8"
+      parameterNames: ["SmallInt"]
+      responses:
+      -
+        code: "200"
+        description: ""
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []

@@ -54,20 +54,20 @@ Level = "DEBUG"
 
 # Pre-define Devices
 [[DeviceList]]
-  Name = "RandNum-Device01"
-  Profile = "RandNum-Device"
-  Description = "Random Number Generator Device"
-  Labels = [ "random", "test" ]
+  Name = "BigInt-Device01"
+  Profile = "BigInt-Device"
+  Description = "Big Integer Number Generator Device"
+  Labels = [ "bigint", "test" ]
   [DeviceList.Protocols]
     [DeviceList.Protocols.Other]
-      Address = "random"
+      Address = "bigint"
       Port = "300"
 [[DeviceList]]
-  Name = "Float-Device01"
-  Profile = "Float-Device"
-  Description = "Example of Float Device"
-  Labels = [ "FloatDevice" ]
+  Name = "SmallInt-Device01"
+  Profile = "SmallInt-Device"
+  Description = "Example of SmallInt Number Generator Device"
+  Labels = [ "smallint" ]
   [DeviceList.Protocols]
     [DeviceList.Protocols.other]
-      Address = "Float01"
+      Address = "smallint"
       Port = "300"
