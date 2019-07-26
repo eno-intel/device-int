@@ -1,0 +1,7 @@
+go.sum
+*.exe
+debug
+
+# binary
+cmd/cmd
+*.log

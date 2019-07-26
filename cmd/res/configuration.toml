@@ -49,7 +49,7 @@ FailWaitTime = 10
 
 [Logging]
 EnableRemote = false
-File = "./device-simple.log"
+File = "./device-int.log"
 Level = "DEBUG"
 
 # Pre-define Devices

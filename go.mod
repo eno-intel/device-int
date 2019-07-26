@@ -1,4 +1,4 @@
-module device-simple
+module device-int
 
 go 1.12
 

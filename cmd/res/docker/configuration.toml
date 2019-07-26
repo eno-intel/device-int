@@ -2,7 +2,7 @@
 LogLevel = 'INFO'
 
 [Service]
-Host = "device-simple"
+Host = "device-int"
 Port = 49990
 ConnectRetries = 20
 Labels = []
@@ -52,7 +52,7 @@ FailWaitTime = 10
 
 [Logging]
 EnableRemote = true
-File = "/edgex/logs/device-simple.log"
+File = "/edgex/logs/device-int.log"
 
 # Pre-define Devices
 [[DeviceList]]

@@ -35,7 +35,7 @@ ENV APP_PORT=49990
 EXPOSE $APP_PORT
 
 WORKDIR /
-COPY --from=builder /go/src/github.com/edgexfoundry/device-sdk-go/example/cmd/device-simple/device-simple /usr/local/bin/device-simple
-COPY --from=builder /go/src/github.com/edgexfoundry/device-sdk-go/example/cmd/device-simple/res/docker/configuration.toml /res/docker/configuration.toml
+COPY --from=builder /go/src/github.com/edgexfoundry/device-sdk-go/example/cmd/device-int/device-int /usr/local/bin/device-int
+COPY --from=builder /go/src/github.com/edgexfoundry/device-sdk-go/example/cmd/device-int/res/docker/configuration.toml /res/docker/configuration.toml
 
-CMD [ "/usr/local/bin/device-simple","--profile=docker","--confdir=/res"]
+CMD [ "/usr/local/bin/device-int","--profile=docker","--confdir=/res"]

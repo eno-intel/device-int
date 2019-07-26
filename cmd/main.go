@@ -9,13 +9,14 @@
 package main
 
 import (
+	"device-int/driver"
+
 	"github.com/edgexfoundry/device-sdk-go"
-	"device-simple/driver"
 	"github.com/edgexfoundry/device-sdk-go/pkg/startup"
 )
 
 const (
-	serviceName string = "device-simple"
+	serviceName string = "device-int"
 )
 
 func main() {
